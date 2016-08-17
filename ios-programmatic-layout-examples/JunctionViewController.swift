@@ -15,32 +15,49 @@ class JunctionViewController: UIViewController {
 
         self.navigationItem.title = "Examples"
         
-        // Setup and add Subviews
+        // Setup Buttons
         
         let constraintButton = UIButton(type: .System)
-        constraintButton.setTitle("Constraint Example", forState: .Normal)
-        constraintButton.translatesAutoresizingMaskIntoConstraints = false
+        constraintButton.setTitle("NSLayoutConstraint", forState: .Normal)
         constraintButton.addTarget(self, action: #selector(JunctionViewController.constraintButtonClicked), forControlEvents: .TouchUpInside)
         
         let anchorButton = UIButton(type: .System)
-        anchorButton.setTitle("Anchor Example", forState: .Normal)
-        anchorButton.translatesAutoresizingMaskIntoConstraints = false
+        anchorButton.setTitle("NSLayoutAnchor", forState: .Normal)
         anchorButton.addTarget(self, action: #selector(JunctionViewController.anchorButtonClicked), forControlEvents: .TouchUpInside)
         
         let frameButton = UIButton(type: .System)
-        frameButton.setTitle("Frame Example", forState: .Normal)
-        frameButton.translatesAutoresizingMaskIntoConstraints = false
+        frameButton.setTitle("Frame Based Layout", forState: .Normal)
         frameButton.addTarget(self, action: #selector(JunctionViewController.frameButtonClicked), forControlEvents: .TouchUpInside)
         
-        view.addSubview(anchorButton)
-        view.addSubview(constraintButton)
-        view.addSubview(frameButton)
+        let stackButton = UIButton(type: .System)
+        stackButton.setTitle("UIStackView", forState: .Normal)
+        stackButton.addTarget(self, action: #selector(JunctionViewController.stackButtonClicked), forControlEvents: .TouchUpInside)
+        
+        let visualFormatButton = UIButton(type: .System)
+        visualFormatButton.setTitle("Visual Format Language", forState: .Normal)
+        visualFormatButton.addTarget(self, action: #selector(JunctionViewController.visualFormatLanguageButton), forControlEvents: .TouchUpInside)
+        
+        // Setup and add StackView
+        
+        let navStack = UIStackView()
+        navStack.translatesAutoresizingMaskIntoConstraints = false
+        navStack.alignment = .Center
+        navStack.axis = .Vertical
+        navStack.distribution = .EqualSpacing
+        navStack.spacing = 8
+        navStack.addArrangedSubview(constraintButton)
+        navStack.addArrangedSubview(anchorButton)
+        navStack.addArrangedSubview(frameButton)
+        navStack.addArrangedSubview(stackButton)
+        navStack.addArrangedSubview(visualFormatButton)
+        
+        view.addSubview(navStack)
         view.backgroundColor = UIColor.whiteColor()
         
         // Setup and Activate Constraints
         
-        let constraintButtonLeadingConstraint = NSLayoutConstraint(
-            item: constraintButton,
+        let navStackLeadingConstraint = NSLayoutConstraint(
+            item: navStack,
             attribute: .LeadingMargin,
             relatedBy: .Equal,
             toItem: view,
@@ -48,8 +65,8 @@ class JunctionViewController: UIViewController {
             multiplier: 1.0,
             constant: 8)
         
-        let constraintButtonTrailingConstraint = NSLayoutConstraint(
-            item: constraintButton,
+        let navStackTrailingConstraint = NSLayoutConstraint(
+            item: navStack,
             attribute: .TrailingMargin,
             relatedBy: .Equal,
             toItem: view,
@@ -57,8 +74,8 @@ class JunctionViewController: UIViewController {
             multiplier: 1.0,
             constant: -8)
         
-        let constraintButtonTopConstraint = NSLayoutConstraint(
-            item: constraintButton,
+        let navStackTopConstraint = NSLayoutConstraint(
+            item: navStack,
             attribute: .Top,
             relatedBy: .Equal,
             toItem: view,
@@ -66,70 +83,10 @@ class JunctionViewController: UIViewController {
             multiplier: 1.0,
             constant: 80)
         
-        let anchorButtonLeadingConstraint = NSLayoutConstraint(
-            item: anchorButton,
-            attribute: .LeadingMargin,
-            relatedBy: .Equal,
-            toItem: view,
-            attribute: .LeadingMargin,
-            multiplier: 1.0,
-            constant: 8)
-        
-        let anchorButtonTrailingConstraint = NSLayoutConstraint(
-            item: anchorButton,
-            attribute: .TrailingMargin,
-            relatedBy: .Equal,
-            toItem: view,
-            attribute: .TrailingMargin,
-            multiplier: 1.0,
-            constant: -8)
-        
-        let anchorButtonTopConstraint = NSLayoutConstraint(
-            item: anchorButton,
-            attribute: .Top,
-            relatedBy: .Equal,
-            toItem: constraintButton,
-            attribute: .Bottom,
-            multiplier: 1.0,
-            constant: 8)
-        
-        let frameButtonLeadingConstraint = NSLayoutConstraint(
-            item: frameButton,
-            attribute: .LeadingMargin,
-            relatedBy: .Equal,
-            toItem: view,
-            attribute: .LeadingMargin,
-            multiplier: 1.0,
-            constant: 8)
-        
-        let frameButtonTrailingConstraint = NSLayoutConstraint(
-            item: frameButton,
-            attribute: .TrailingMargin,
-            relatedBy: .Equal,
-            toItem: view,
-            attribute: .TrailingMargin,
-            multiplier: 1.0,
-            constant: -8)
-        
-        let frameButtonTopConstraint = NSLayoutConstraint(
-            item: frameButton,
-            attribute: .Top,
-            relatedBy: .Equal,
-            toItem: anchorButton,
-            attribute: .Bottom,
-            multiplier: 1.0,
-            constant: 8)
-        
         NSLayoutConstraint.activateConstraints([
-            constraintButtonLeadingConstraint,
-            constraintButtonTrailingConstraint,
-            constraintButtonTopConstraint,
-            anchorButtonLeadingConstraint,
-            anchorButtonTrailingConstraint,
-            anchorButtonTopConstraint,
-            frameButtonLeadingConstraint,
-            frameButtonTrailingConstraint,
-            frameButtonTopConstraint])
+            navStackLeadingConstraint,
+            navStackTrailingConstraint,
+            navStackTopConstraint ])
     }
 
     override func didReceiveMemoryWarning() {
@@ -148,5 +105,13 @@ class JunctionViewController: UIViewController {
     func frameButtonClicked(sender: UIButton!) {
         let frameVC = FrameBasedLayoutViewController()
         navigationController?.pushViewController(frameVC, animated: true)
+    }
+    
+    func stackButtonClicked(sender: UIButton!) {
+        print("stack")
+    }
+    
+    func visualFormatLanguageButton(sender: UIButton!) {
+        print("format")
     }
 }
