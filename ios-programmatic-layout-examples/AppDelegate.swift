@@ -17,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = .whiteColor()
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController()
+        let navigationController = UINavigationController()
+        let junctionController = JunctionViewController()
+        navigationController.pushViewController(junctionController, animated: false)
+        window?.rootViewController = navigationController
         return true
     }
 }
