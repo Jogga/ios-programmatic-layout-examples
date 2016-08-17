@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12F2C1681D645B4D00C6E455 /* FrameBasedLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F2C1671D645B4D00C6E455 /* FrameBasedLayoutViewController.swift */; };
 		D3AB0AF11D639268009BB8D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AB0AF01D639268009BB8D6 /* AppDelegate.swift */; };
 		D3AB0AF81D639268009BB8D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3AB0AF71D639268009BB8D6 /* Assets.xcassets */; };
 		D3AB0AFB1D639268009BB8D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3AB0AF91D639268009BB8D6 /* LaunchScreen.storyboard */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12F2C1671D645B4D00C6E455 /* FrameBasedLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameBasedLayoutViewController.swift; sourceTree = "<group>"; };
 		D3AB0AED1D639268009BB8D6 /* ios-programmatic-layout-examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-programmatic-layout-examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AB0AF01D639268009BB8D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3AB0AF71D639268009BB8D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				D3AB0AF91D639268009BB8D6 /* LaunchScreen.storyboard */,
 				D3AB0AFC1D639268009BB8D6 /* Info.plist */,
 				D3AB0B021D6399CD009BB8D6 /* JunctionViewController.swift */,
+				12F2C1671D645B4D00C6E455 /* FrameBasedLayoutViewController.swift */,
 			);
 			path = "ios-programmatic-layout-examples";
 			sourceTree = "<group>";
@@ -131,6 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12F2C1681D645B4D00C6E455 /* FrameBasedLayoutViewController.swift in Sources */,
 				D3AB0B031D6399CD009BB8D6 /* JunctionViewController.swift in Sources */,
 				D3AB0AF11D639268009BB8D6 /* AppDelegate.swift in Sources */,
 			);
@@ -276,6 +280,7 @@
 				D3AB0B011D639268009BB8D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
