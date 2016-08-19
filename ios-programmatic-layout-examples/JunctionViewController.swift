@@ -51,42 +51,110 @@ class JunctionViewController: UIViewController {
         navStack.addArrangedSubview(stackButton)
         navStack.addArrangedSubview(visualFormatButton)
         
-        view.addSubview(navStack)
+        // Setup ScrollView
+        
+        let examplesScrollView = UIScrollView()
+        examplesScrollView.translatesAutoresizingMaskIntoConstraints = false
+        examplesScrollView.addSubview(navStack)
+        
+        // Add Views
+        
+        view.addSubview(examplesScrollView)
         view.backgroundColor = UIColor.whiteColor()
         
         // Setup and Activate Constraints
         
-        let navStackLeadingConstraint = NSLayoutConstraint(
-            item: navStack,
+        let exampleScrollViewLeadingConstraint = NSLayoutConstraint(
+            item: examplesScrollView,
             attribute: .LeadingMargin,
             relatedBy: .Equal,
             toItem: view,
-            attribute: .LeadingMargin,
+            attribute: .Leading,
             multiplier: 1.0,
-            constant: 8)
+            constant: 0)
+        
+        let exampleScrollViewTrailingConstraint = NSLayoutConstraint(
+            item: examplesScrollView,
+            attribute: .TrailingMargin,
+            relatedBy: .Equal,
+            toItem: view,
+            attribute: .Trailing,
+            multiplier: 1.0,
+            constant: 0)
+        
+        let exampleScrollViewTopConstraint = NSLayoutConstraint(
+            item: examplesScrollView,
+            attribute: .Top,
+            relatedBy: .Equal,
+            toItem: view,
+            attribute: .Top,
+            multiplier: 1.0,
+            constant: 0)
+        
+        let exampleScrollViewBottomConstraint = NSLayoutConstraint(
+            item: examplesScrollView,
+            attribute: .Bottom,
+            relatedBy: .Equal,
+            toItem: view,
+            attribute: .Bottom,
+            multiplier: 1.0,
+            constant: 0)
+        
+        let navStackLeadingConstraint = NSLayoutConstraint(
+            item: navStack,
+            attribute: .Leading,
+            relatedBy: .Equal,
+            toItem: examplesScrollView,
+            attribute: .Leading,
+            multiplier: 1.0,
+            constant: 0)
         
         let navStackTrailingConstraint = NSLayoutConstraint(
             item: navStack,
-            attribute: .TrailingMargin,
+            attribute: .Trailing,
             relatedBy: .Equal,
-            toItem: view,
-            attribute: .TrailingMargin,
+            toItem: examplesScrollView,
+            attribute: .Trailing,
             multiplier: 1.0,
-            constant: -8)
+            constant: 0)
         
         let navStackTopConstraint = NSLayoutConstraint(
             item: navStack,
             attribute: .Top,
             relatedBy: .Equal,
-            toItem: view,
-            attribute: .TopMargin,
+            toItem: examplesScrollView,
+            attribute: .Top,
             multiplier: 1.0,
-            constant: 80)
+            constant: 0)
+        
+        let navStackBottomConstraint = NSLayoutConstraint(
+            item: navStack,
+            attribute: .Bottom,
+            relatedBy: .Equal,
+            toItem: examplesScrollView,
+            attribute: .Bottom,
+            multiplier: 1.0,
+            constant: 0)
+        
+        let navStackWidthConstraint = NSLayoutConstraint(
+            item: navStack,
+            attribute: .Width,
+            relatedBy: .Equal,
+            toItem: examplesScrollView,
+            attribute: .Width,
+            multiplier: 1.0,
+            constant: 0)
         
         NSLayoutConstraint.activateConstraints([
+            exampleScrollViewLeadingConstraint,
+            exampleScrollViewTrailingConstraint,
+            exampleScrollViewTopConstraint,
+            exampleScrollViewBottomConstraint,
             navStackLeadingConstraint,
             navStackTrailingConstraint,
-            navStackTopConstraint ])
+            navStackTopConstraint,
+            navStackBottomConstraint,
+            navStackWidthConstraint ])
     }
 
     override func didReceiveMemoryWarning() {
