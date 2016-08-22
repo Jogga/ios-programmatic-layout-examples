@@ -10,10 +10,10 @@ import UIKit
 
 class FrameBasedLayoutViewController: UIViewController {
     
-    let button = UIButton(type: .System)
-    let secondButton = UIButton(type: .System)
-    let bodyText = UILabel()
-    let profile = UIImageView()
+    let userNameLabel = UILabel()
+    let commentLabel = UILabel()
+    let profileImage = UIImageView()
+    let infoButton = UIButton(type: UIButtonType.InfoLight)
     
     override func loadView() {
         self.view = UIView(frame: UIScreen.mainScreen().bounds)
@@ -25,27 +25,30 @@ class FrameBasedLayoutViewController: UIViewController {
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        setupSubviews(size)
+        configureView(size)
     }
     
     override func viewDidLoad() {
         self.navigationItem.title = "Frames"
         super.viewDidLoad()
         
-        button.setTitle("Alfinator hello", forState: .Normal)
-        secondButton.setTitle("Strange Things", forState: .Normal)
-        bodyText.text = "What if UILabel decides to add support for special borders, or configurable line heights, or some other visual effects."
-        bodyText.numberOfLines = 0
-        profile.backgroundColor = UIColor.blackColor()
+        userNameLabel.text = "John Appleseed"
+        userNameLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         
-        view.addSubview(button)
-        view.addSubview(secondButton)
-        view.addSubview(bodyText)
-        view.addSubview(profile)
+        commentLabel.text = "What if UILabel decides to add support for special borders, or configurable line heights, or some other visual effects."
+        commentLabel.numberOfLines = 0
+        commentLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        
+        profileImage.backgroundColor = UIColor.lightGrayColor()
+        
+        view.addSubview(userNameLabel)
+        view.addSubview(commentLabel)
+        view.addSubview(profileImage)
+        view.addSubview(infoButton)
         
         view.backgroundColor = UIColor.whiteColor()
         
-        setupSubviews(view.bounds.size)
+        configureView(view.bounds.size)
         
         print(view.bounds.size)
     }
@@ -60,34 +63,37 @@ class FrameBasedLayoutViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     
-    func setupSubviews(size: CGSize) {
+    func configureView(size: CGSize) {
         
-        button.frame = CGRect(
-            x: ((size.width - button.intrinsicContentSize().width) / 2),
-            y: 30,
-            width: button.intrinsicContentSize().width,
-            height: button.intrinsicContentSize().height)
+        let imageSideLength: CGFloat = 48
+        let margin: CGFloat = 8
+        let availableTextWidth: CGFloat = size.width - (margin * 3) - imageSideLength
+        let commentLabelSize = commentLabel.sizeThatFits(CGSize(width: availableTextWidth, height: CGFloat.max))
+        let userNameLabelSize = userNameLabel.sizeThatFits(CGSize(width: availableTextWidth, height: CGFloat.max))
         
-        secondButton.frame = CGRect(
-            x: ((size.width - secondButton.intrinsicContentSize().width) / 2),
-            y: (button.frame.maxY + 8),
-            width: secondButton.intrinsicContentSize().width,
-            height: secondButton.intrinsicContentSize().height)
+        profileImage.frame = CGRect(
+            x: margin,
+            y: 64 + margin,
+            width: imageSideLength,
+            height: imageSideLength)
         
-        profile.frame = CGRect(
-            x: 8,
-            y: secondButton.frame.maxY + 8,
-            width: 48,
-            height: 48)
+        userNameLabel.frame = CGRect(
+            x: profileImage.frame.maxX + margin,
+            y: profileImage.frame.minY,
+            width: ceil(userNameLabelSize.width),
+            height: ceil(userNameLabelSize.height))
         
-        let textSize = bodyText.sizeThatFits(CGSize(width: size.width - 24 - profile.frame.width, height: size.height))
+        commentLabel.frame = CGRect(
+            x: profileImage.frame.maxX + margin,
+            y: userNameLabel.frame.maxY + 4,
+            width: ceil(commentLabelSize.width),
+            height: ceil(commentLabelSize.height))
         
-        bodyText.frame = CGRect(
-            x: profile.frame.maxX + 8,
-            y: secondButton.frame.maxY + 8,
-            width: ceil(textSize.width),
-            height: ceil(textSize.height)
-        )
+        infoButton.frame = CGRect(
+            x: profileImage.frame.maxX + margin,
+            y: commentLabel.frame.maxY + margin,
+            width: infoButton.frame.width,
+            height: infoButton.frame.height)
     }
 
     override func didReceiveMemoryWarning() {
