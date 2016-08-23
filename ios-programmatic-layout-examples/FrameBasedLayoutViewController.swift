@@ -65,33 +65,31 @@ class FrameBasedLayoutViewController: UIViewController {
     
     func configureView(size: CGSize) {
         
-        let imageSideLength: CGFloat = 48
-        let margin: CGFloat = 8
-        let availableTextWidth: CGFloat = size.width - (margin * 3) - imageSideLength
+        let availableTextWidth: CGFloat = size.width - (LayoutConstants.margin * 3) - LayoutConstants.imageSideLength
         let commentLabelSize = commentLabel.sizeThatFits(CGSize(width: availableTextWidth, height: CGFloat.max))
         let userNameLabelSize = userNameLabel.sizeThatFits(CGSize(width: availableTextWidth, height: CGFloat.max))
         
         profileImage.frame = CGRect(
-            x: margin,
-            y: 64 + margin,
-            width: imageSideLength,
-            height: imageSideLength)
+            x: LayoutConstants.margin,
+            y: LayoutConstants.navBarHeight + LayoutConstants.margin,
+            width: LayoutConstants.imageSideLength,
+            height: LayoutConstants.imageSideLength)
         
         userNameLabel.frame = CGRect(
-            x: profileImage.frame.maxX + margin,
+            x: profileImage.frame.maxX + LayoutConstants.margin,
             y: profileImage.frame.minY,
             width: ceil(userNameLabelSize.width),
             height: ceil(userNameLabelSize.height))
         
         commentLabel.frame = CGRect(
-            x: profileImage.frame.maxX + margin,
-            y: userNameLabel.frame.maxY + 4,
+            x: profileImage.frame.maxX + LayoutConstants.margin,
+            y: userNameLabel.frame.maxY + LayoutConstants.marginSmall,
             width: ceil(commentLabelSize.width),
             height: ceil(commentLabelSize.height))
         
         infoButton.frame = CGRect(
-            x: profileImage.frame.maxX + margin,
-            y: commentLabel.frame.maxY + margin,
+            x: profileImage.frame.maxX + LayoutConstants.margin,
+            y: commentLabel.frame.maxY + LayoutConstants.margin,
             width: infoButton.frame.width,
             height: infoButton.frame.height)
     }
