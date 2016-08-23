@@ -19,9 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         let navigationController = UINavigationController()
         let junctionController = JunctionViewController()
-        let frameBasedLayoutViewController = FrameBasedLayoutViewController()
         navigationController.pushViewController(junctionController, animated: false)
-        window?.rootViewController = navigationController //navigationController
+        window?.rootViewController = navigationController
         return true
     }
 }

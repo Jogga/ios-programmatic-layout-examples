@@ -177,7 +177,8 @@ class JunctionViewController: UIViewController {
     }
     
     func stackButtonClicked(sender: UIButton!) {
-        print("stack")
+        let stackVC = StackViewLayoutViewController()
+        navigationController?.pushViewController(stackVC, animated: true)
     }
     
     func visualFormatLanguageButton(sender: UIButton!) {

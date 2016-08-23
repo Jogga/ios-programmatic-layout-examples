@@ -14,6 +14,7 @@ class FrameBasedLayoutViewController: UIViewController {
     let commentLabel = UILabel()
     let profileImage = UIImageView()
     let infoButton = UIButton(type: UIButtonType.InfoLight)
+    let mediaItem = MediaItem()
     
     override func loadView() {
         self.view = UIView(frame: UIScreen.mainScreen().bounds)
@@ -32,10 +33,10 @@ class FrameBasedLayoutViewController: UIViewController {
         self.navigationItem.title = "Frames"
         super.viewDidLoad()
         
-        userNameLabel.text = "John Appleseed"
+        userNameLabel.text = mediaItem.userName
         userNameLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         
-        commentLabel.text = "What if UILabel decides to add support for special borders, or configurable line heights, or some other visual effects."
+        commentLabel.text = mediaItem.comment
         commentLabel.numberOfLines = 0
         commentLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         
@@ -49,17 +50,13 @@ class FrameBasedLayoutViewController: UIViewController {
         view.backgroundColor = UIColor.whiteColor()
         
         configureView(view.bounds.size)
-        
-        print(view.bounds.size)
     }
     
     override func viewWillAppear(animated: Bool) {
-        print(view.bounds.size)
         super.viewWillAppear(animated)
     }
     
     override func viewDidAppear(animated: Bool) {
-        print(view.bounds.size)
         super.viewDidAppear(animated)
     }
     

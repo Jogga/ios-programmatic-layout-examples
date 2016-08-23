@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		12F2C1681D645B4D00C6E455 /* FrameBasedLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F2C1671D645B4D00C6E455 /* FrameBasedLayoutViewController.swift */; };
 		D391247B1D6CC5F800B97F89 /* LayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D391247A1D6CC5F800B97F89 /* LayoutConstants.swift */; };
+		D391247D1D6CC8EE00B97F89 /* StackViewLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D391247C1D6CC8EE00B97F89 /* StackViewLayoutViewController.swift */; };
+		D391247F1D6CCDE700B97F89 /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D391247E1D6CCDE700B97F89 /* MediaItem.swift */; };
+		D39124831D6CD36B00B97F89 /* profile-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = D39124811D6CD36B00B97F89 /* profile-placeholder.png */; };
+		D39124841D6CD36B00B97F89 /* profile-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D39124821D6CD36B00B97F89 /* profile-placeholder@2x.png */; };
 		D3AB0AF11D639268009BB8D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AB0AF01D639268009BB8D6 /* AppDelegate.swift */; };
 		D3AB0AF81D639268009BB8D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3AB0AF71D639268009BB8D6 /* Assets.xcassets */; };
 		D3AB0AFB1D639268009BB8D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3AB0AF91D639268009BB8D6 /* LaunchScreen.storyboard */; };
@@ -18,6 +22,10 @@
 /* Begin PBXFileReference section */
 		12F2C1671D645B4D00C6E455 /* FrameBasedLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameBasedLayoutViewController.swift; sourceTree = "<group>"; };
 		D391247A1D6CC5F800B97F89 /* LayoutConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstants.swift; sourceTree = "<group>"; };
+		D391247C1D6CC8EE00B97F89 /* StackViewLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewLayoutViewController.swift; sourceTree = "<group>"; };
+		D391247E1D6CCDE700B97F89 /* MediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
+		D39124811D6CD36B00B97F89 /* profile-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-placeholder.png"; sourceTree = "<group>"; };
+		D39124821D6CD36B00B97F89 /* profile-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-placeholder@2x.png"; sourceTree = "<group>"; };
 		D3AB0AED1D639268009BB8D6 /* ios-programmatic-layout-examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-programmatic-layout-examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AB0AF01D639268009BB8D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3AB0AF71D639268009BB8D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D39124801D6CD34E00B97F89 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D39124811D6CD36B00B97F89 /* profile-placeholder.png */,
+				D39124821D6CD36B00B97F89 /* profile-placeholder@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		D3AB0AE41D639268009BB8D6 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +73,7 @@
 		D3AB0AEF1D639268009BB8D6 /* ios-programmatic-layout-examples */ = {
 			isa = PBXGroup;
 			children = (
+				D39124801D6CD34E00B97F89 /* Resources */,
 				D3AB0AF01D639268009BB8D6 /* AppDelegate.swift */,
 				D3AB0AF71D639268009BB8D6 /* Assets.xcassets */,
 				D3AB0AF91D639268009BB8D6 /* LaunchScreen.storyboard */,
@@ -63,6 +81,8 @@
 				D3AB0B021D6399CD009BB8D6 /* JunctionViewController.swift */,
 				12F2C1671D645B4D00C6E455 /* FrameBasedLayoutViewController.swift */,
 				D391247A1D6CC5F800B97F89 /* LayoutConstants.swift */,
+				D391247C1D6CC8EE00B97F89 /* StackViewLayoutViewController.swift */,
+				D391247E1D6CCDE700B97F89 /* MediaItem.swift */,
 			);
 			path = "ios-programmatic-layout-examples";
 			sourceTree = "<group>";
@@ -125,8 +145,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D39124841D6CD36B00B97F89 /* profile-placeholder@2x.png in Resources */,
 				D3AB0AFB1D639268009BB8D6 /* LaunchScreen.storyboard in Resources */,
 				D3AB0AF81D639268009BB8D6 /* Assets.xcassets in Resources */,
+				D39124831D6CD36B00B97F89 /* profile-placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +160,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				12F2C1681D645B4D00C6E455 /* FrameBasedLayoutViewController.swift in Sources */,
+				D391247D1D6CC8EE00B97F89 /* StackViewLayoutViewController.swift in Sources */,
 				D3AB0B031D6399CD009BB8D6 /* JunctionViewController.swift in Sources */,
 				D3AB0AF11D639268009BB8D6 /* AppDelegate.swift in Sources */,
 				D391247B1D6CC5F800B97F89 /* LayoutConstants.swift in Sources */,
+				D391247F1D6CCDE700B97F89 /* MediaItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
